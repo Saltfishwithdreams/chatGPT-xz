@@ -18,11 +18,11 @@ export default () => {
 
   onMount(() => {
     try {
-      if (localStorage.getItem('messageList'))
-        setMessageList(JSON.parse(localStorage.getItem('messageList')))
-
-      if (localStorage.getItem('systemRoleSettings'))
-        setCurrentSystemRoleSettings(localStorage.getItem('systemRoleSettings'))
+      // if (localStorage.getItem('messageList'))
+      //   setMessageList(JSON.parse(localStorage.getItem('messageList')))
+      //
+      // if (localStorage.getItem('systemRoleSettings'))
+      //   setCurrentSystemRoleSettings(localStorage.getItem('systemRoleSettings'))
     } catch (err) {
       console.error(err)
     }
@@ -42,7 +42,7 @@ export default () => {
     const inputValue = inputRef.value
     if (!inputValue)
       return
-    const text = import.meta.env.PUBLIC_TEXT.replace(/\s*/g, '')
+    const text = import.meta.env.PUBLIC_TEXT
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     if (window?.umami) umami.trackEvent('chat_generate')
